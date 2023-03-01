@@ -26,20 +26,22 @@ public class ManageQuestions : MonoBehaviour
 
 
 
-    void bool isCorrect(int guess) {
-        if( guess == answer) {
-            correct = true;
-        }
 
+   private bool isCorrect(int guess) {
+       if(guess == answer) {
+            correct = true;
+       }
+   }
             
-    }
+    
 
     private void Question() {
      ranNum1 = Range(1,11);
      ranNum2 = Range(1,11);
      answer = ranNum1 + ranNum2;
 
-     question.text = ranNum1 + " + " + ranNum2 + " = ";
+     question.text = ranNum1 + " + " + ranNum2 + " = " + answer;
+
      question.textStyle = TMP_Style.NormalStyle;
       
 
