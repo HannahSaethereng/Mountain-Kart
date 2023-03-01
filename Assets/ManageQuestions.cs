@@ -9,7 +9,9 @@ using static UnityEngine.Random;
 public class ManageQuestions : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI question;
+    [SerializeField] private TextMeshProUGUI Question1;
+    [SerializeField] private TextMeshProUGUI Answer2;
+    [SerializeField] private TextMeshProUGUI Choice1;
     private int ranNum1;
     private int ranNum2;
     private char addSub;
@@ -27,22 +29,24 @@ public class ManageQuestions : MonoBehaviour
 
 
 
-   private bool isCorrect(int guess) {
+   private void isCorrect(int guess) {
        if(guess == answer) {
             correct = true;
        }
    }
-            
-    
 
     private void Question() {
      ranNum1 = Range(1,11);
      ranNum2 = Range(1,11);
      answer = ranNum1 + ranNum2;
 
-     question.text = ranNum1 + " + " + ranNum2 + " = " + answer;
+     Question1.text = ranNum1 + " + " + ranNum2 + " = " + answer;
+     Answer2.text = "" + answer;
+     Choice1.text = "" + Range(answer-3,answer + 3);
 
-     question.textStyle = TMP_Style.NormalStyle;
+
+     Question1.textStyle = TMP_Style.NormalStyle;
+     Answer2.textStyle = TMP_Style.NormalStyle;
       
 
     }
