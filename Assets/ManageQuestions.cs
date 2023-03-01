@@ -15,7 +15,7 @@ public class ManageQuestions : MonoBehaviour
     private char addSub;
     private int answer;
     private int counter;
-  //  private bool correct = false;
+    private bool correct = false;
 
 
    public void ButtonPress() { 
@@ -26,11 +26,11 @@ public class ManageQuestions : MonoBehaviour
 
 
 
-  //  void bool isCorrect(int guess) {
-  //      if( guess == answer) {
-       //     correct = true;
-      //  }
-
+   private bool isCorrect(int guess) {
+       if(guess == answer) {
+            correct = true;
+       }
+   }
             
     
 
@@ -39,7 +39,7 @@ public class ManageQuestions : MonoBehaviour
      ranNum2 = Range(1,11);
      answer = ranNum1 + ranNum2;
 
-     question.text = ranNum1 + " + " + ranNum2 + " = ";
+     question.text = ranNum1 + " + " + ranNum2 + " = " + answer;
      question.textStyle = TMP_Style.NormalStyle;
       
 
