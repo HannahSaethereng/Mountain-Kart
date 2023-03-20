@@ -27,7 +27,7 @@ public class ManageQuestions : MonoBehaviour
 
 
 
-   private bool isCorrect(int guess) {
+   private void isCorrect(int guess) {
        if(guess == answer) {
             correct = true;
        }
