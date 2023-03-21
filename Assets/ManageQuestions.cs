@@ -21,16 +21,19 @@ public class ManageQuestions : MonoBehaviour
     private char addSub;
     private int answer;
     private static int counter = 0;
-    private bool correct = false;
+    public static bool correct = false;
     private static int guess;
     private static int indexCorrect = -1;
 
 
    public void ButtonPress() { 
+    correct = false;
     if(guess == indexCorrect) {
         counter++;
         correct = true;
+        
     }
+    
     Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
     guess = -1;
     
@@ -139,7 +142,7 @@ public class ManageQuestions : MonoBehaviour
         
      Question1.textStyle = TMP_Style.NormalStyle;
      Answer2.textStyle = TMP_Style.NormalStyle;
-      correct = false;
+      
 
     }
     
