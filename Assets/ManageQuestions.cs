@@ -100,7 +100,7 @@ public class ManageQuestions : MonoBehaviour
     int choice1;
     int choice2;
 
-    Question1.text = ranNum1 + " " + addSub + " " + ranNum2 + " = " + answer;
+    Question1.text = ranNum1 + " " + addSub + " " + ranNum2 + " = ";
 
      choice1 =  Range(answer-5,answer + 5);
         while (choice1 == answer || choice1 < 0) {
