@@ -16,11 +16,13 @@ public class ManageQuestions : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Choice1;
     [SerializeField] private TextMeshProUGUI Choice2;
     [SerializeField] private TextMeshProUGUI Counter;
+    [SerializeField] private TextMeshProUGUI WrongAnswer;
     private int ranNum1;
     private int ranNum2;
     private char addSub;
     private int answer;
     private static int counter = 0;
+    private static int wrongAnswers = -1;
     public static bool correct = false;
     private static int guess;
     private static int indexCorrect = -1;
@@ -31,13 +33,28 @@ public class ManageQuestions : MonoBehaviour
     if(guess == indexCorrect) {
         counter++;
         correct = true;
+        if (counter == 10 && wrongAnswers < 2 ) {
+            //SceneManager.LoadScene("Winning Scene");
+        }
+        else if (counter == 10) {
+            //SceneManager.LoadScene("Almost Won");
+        }
+
         
+    }
+    else {
+        wrongAnswers++;
+        if (wrongAnswers == 5) {
+            //SceneManager.LoadScene("Losing Scene");
+        }
+
     }
     
     Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
     guess = -1;
-    
+    int lives = 5 - wrongAnswers;
     Counter.text = "You have " + counter + " correct answers!";
+    WrongAnswer.text = "You have " + lives + " lives left";
 
         Question();
        
