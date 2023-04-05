@@ -19,6 +19,7 @@ public class CarMoves : MonoBehaviour
     void Update()
     {
         //Input.GetKeyDown(KeyCode.Mouse0)
+        //Debug.Log("Correct car drives returns: " + ManageQuestions.correct);
         if (ManageQuestions.correct && Input.GetKeyDown(KeyCode.Mouse0))
         {
     

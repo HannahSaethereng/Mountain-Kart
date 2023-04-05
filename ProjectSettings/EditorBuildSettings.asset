@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Questions.unity
     guid: 5c5f2610194564304b52a87c6f4abeab
+  - enabled: 1
+    path: Assets/Almost Won.unity
+    guid: 0955c9d9d45bd4a7d8be97df1456f97a
+  - enabled: 1
+    path: Assets/Losing Scene.unity
+    guid: 5f7cd78abf1d648ac93aec1d728541de
+  - enabled: 1
+    path: Assets/Winning Scene.unity
+    guid: 876b8131f8a6940a392c0feb3b5e1f92
   m_configObjects: {}

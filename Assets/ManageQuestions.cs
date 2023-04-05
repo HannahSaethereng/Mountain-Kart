@@ -33,24 +33,27 @@ public class ManageQuestions : MonoBehaviour
     if(guess == indexCorrect) {
         counter++;
         correct = true;
-        if (counter == 10 && wrongAnswers < 2 ) {
-            //SceneManager.LoadScene("Winning Scene");
-        }
-        else if (counter == 10) {
-            //SceneManager.LoadScene("Almost Won");
-        }
-
         
     }
     else {
         wrongAnswers++;
-        if (wrongAnswers == 5) {
-            //SceneManager.LoadScene("Losing Scene");
-        }
 
     }
-    
-    Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
+    //Debug.Log("correct counter = " + counter + ", " + "wrong answers = " + wrongAnswers);
+    if ((counter == 10) && (wrongAnswers < 2)) {
+            //SceneManager.LoadScene("Winning Scene");
+        }
+    else if ((counter == 10) && (wrongAnswers < 5)) {
+            //SceneManager.LoadScene("Almost Won");
+        }
+    else if (wrongAnswers == 5) {
+            //SceneManager.LoadScene("Losing Scene");
+        }
+    else {
+
+    }
+    Debug.Log("Correct buttonPress returns: " + correct);
+    //Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
     guess = -1;
     int lives = 5 - wrongAnswers;
     Counter.text = "You have " + counter + " correct answers!";
@@ -78,22 +81,24 @@ public class ManageQuestions : MonoBehaviour
 
    public void GetGuess() {
         guess = 0;
+        Debug.Log("Correct button returns: " + correct);
    }
 
    public void GetGuess1() {
     guess = 1;
-   
+   Debug.Log("Correct button returns: " + correct);
    }
 
      public void GetGuess2() {
         guess = 2; 
+        Debug.Log("Correct button returns: " + correct);
    }
   
 
     
 
     private void Question() {
-    
+    Debug.Log("Correct question returns: " + correct);
      ranNum1 = Range(1,11);
      ranNum2 = Range(1,11);
 
