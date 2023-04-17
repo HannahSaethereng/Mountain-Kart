@@ -26,13 +26,14 @@ public class ManageQuestions : MonoBehaviour
     public static bool correct = false;
     private static int guess;
     private static int indexCorrect = -1;
+    private static System.Random rand;
 
 
    public void ButtonPress() { 
     correct = false;
     if(guess == indexCorrect) {
         counter++;
-        correct = true;
+        correct = true; 
         
     }
     else {
@@ -53,13 +54,14 @@ public class ManageQuestions : MonoBehaviour
 
     }
     //Debug.Log("Correct buttonPress returns: " + correct);
-    //Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
+    Debug.Log("indexCorrect = " + indexCorrect + ", " + "guess = " + guess);
     guess = -1;
     int lives = 5 - wrongAnswers;
     Counter.text = "You have " + counter + " correct answers!";
     WrongAnswer.text = "You have " + lives + " lives left";
 
-        Question();
+        //Question();
+        QuestionPlaceValue();
        
         
     }
@@ -80,12 +82,12 @@ public class ManageQuestions : MonoBehaviour
 
 
    public void GetGuess() {
-        guess = 0;
-        //Debug.Log("Correct button returns: " + correct);
+     guess = 0;
+     //Debug.Log("Correct button returns: " + correct);
    }
 
    public void GetGuess1() {
-    guess = 1;
+     guess = 1;
     //Debug.Log("Correct button returns: " + correct);
    }
 
@@ -168,27 +170,7 @@ public class ManageQuestions : MonoBehaviour
 
     }
     private void QuestionPlaceValue() {
-         //ranNum3 = Range(1,101);
-         //ranNum2 = Range(1,11);
-
-    /*float operatorRand = UnityEngine.Random.Range(0f, 1f);
-    if (operatorRand < 0.5f) {
-        addSub = '+';
-        answer = ranNum1 + ranNum2;
-    } 
-
-    else {
-        addSub = '-';
-        answer = ranNum1 - ranNum2;
-        if (answer < 0) {
-            int temp = ranNum1;
-            ranNum1 = ranNum2;
-            ranNum2 = temp;
-            answer = ranNum1 - ranNum2;
-
-        }
-    }*/
-
+    
     int choice1;
     int choice2;
     int choice3;
@@ -201,27 +183,47 @@ public class ManageQuestions : MonoBehaviour
      
      choice1 = Range(0,10);
      choice2 = Range(0,10);
+     
+     //checks that the number is not the same
+     while (choice2 == choice1) {
+        choice2 = Range(0,10);
+     }
+     
      choice3 = Range(0,10);
-     int correctAnswer = -1;
+     
+     //checks that the number is not the same
+     while (choice3 == choice2 || choice3 == choice1) {
+        choice3 = Range(0,10);
+     }
+     //int correctAnswer = -1;
 
 
         
-        List<string> strings = new List<string> {ones, tens, hundreds };
-
-        Random rand = new Random();
-        int index = rand.Next(strings.Count);
-        place = strings[index];   
+        //List<string> strings = new List<string> {ones, tens, hundreds};
+        String[] places = {"ones", "tens", "hundreds"};
+        //rand = new System.Random();
+        //int index = rand.Next(strings.Count);
+        int index = Range(0,3);
+        place = places[index];   
         
-        Question1.text = "In the number " + choice1 + choice2 + choice3 + ". What value is in the" + place + " place?";
+        if (choice1 == 0){
+            Question1.text = "In the number " + choice2 + choice3 + ". What value is in the " + place + " place?";
+        }
+        else { 
+            Question1.text = "In the number " + choice1 + choice2 + choice3 + ". What value is in the " + place + " place?";
+        }
         
-        if (place.equals(ones)) {
+        if (place.Equals(ones)) {
             answer = choice1;
         }
-        else if(place.equals(tens)) {
+        else if(place.Equals(tens)) {
             answer = choice2;
         }
-        else {
+        else if (place.Equals(hundreds)) {
             answer = choice3;
+        }
+        else {
+            
         }
 
         int[] choices = new int[3];
@@ -230,6 +232,8 @@ public class ManageQuestions : MonoBehaviour
         choices[2] = choice3;
 
         int n = choices.Length;
+        
+        //shuffles the choices
         while (n > 1)
         {
             int k = UnityEngine.Random.Range(0, n--);
@@ -253,6 +257,7 @@ public class ManageQuestions : MonoBehaviour
 
         
      Question1.textStyle = TMP_Style.NormalStyle;
+     Question1.fontSize = 20;
      Answer2.textStyle = TMP_Style.NormalStyle;
       
 
