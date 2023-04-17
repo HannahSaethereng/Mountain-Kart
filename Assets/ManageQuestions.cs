@@ -86,12 +86,12 @@ public class ManageQuestions : MonoBehaviour
 
    public void GetGuess1() {
     guess = 1;
-   //Debug.Log("Correct button returns: " + correct);
+    //Debug.Log("Correct button returns: " + correct);
    }
 
      public void GetGuess2() {
-        guess = 2; 
-        //Debug.Log("Correct button returns: " + correct);
+     guess = 2; 
+     //Debug.Log("Correct button returns: " + correct);
    }
   
 
@@ -191,27 +191,43 @@ public class ManageQuestions : MonoBehaviour
 
     int choice1;
     int choice2;
+    int choice3;
+
     String ones = "ones";
     String tens = "tens";
     String hundreds = "hundreds";
     String place = "";
 
-   // Question1.text = "In the number " + ranNum3 + ". What value is in the" + place + " place?";
-
-     choice1 =  Range(answer-5,answer + 5);
-        while (choice1 == answer || choice1 < 0) {
-            choice1 =  Range(answer-5,answer + 5);
-        }
      
-     choice2 = Range(answer-5,answer + 5);
-            while (choice2 == answer || choice2 == choice1 || choice2 < 0) {
-                choice2 = Range(answer-5,answer + 5);
-            }
-            
-            int[] choices = new int[3];
-        choices[0] = answer;
-        choices[1] = choice1;
-        choices[2] = choice2;
+     choice1 = Range(0,10);
+     choice2 = Range(0,10);
+     choice3 = Range(0,10);
+     int correctAnswer = -1;
+
+
+        
+        List<string> strings = new List<string> {ones, tens, hundreds };
+
+        Random rand = new Random();
+        int index = rand.Next(strings.Count);
+        place = strings[index];   
+        
+        Question1.text = "In the number " + choice1 + choice2 + choice3 + ". What value is in the" + place + " place?";
+        
+        if (place.equals(ones)) {
+            answer = choice1;
+        }
+        else if(place.equals(tens)) {
+            answer = choice2;
+        }
+        else {
+            answer = choice3;
+        }
+
+        int[] choices = new int[3];
+        choices[0] = choice1;
+        choices[1] = choice2;
+        choices[2] = choice3;
 
         int n = choices.Length;
         while (n > 1)
