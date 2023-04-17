@@ -195,14 +195,10 @@ public class ManageQuestions : MonoBehaviour
      while (choice3 == choice2 || choice3 == choice1) {
         choice3 = Range(0,10);
      }
-     //int correctAnswer = -1;
 
 
         
-        //List<string> strings = new List<string> {ones, tens, hundreds};
         String[] places = {"ones", "tens", "hundreds"};
-        //rand = new System.Random();
-        //int index = rand.Next(strings.Count);
         int index = Range(0,3);
         place = places[index];   
         
@@ -223,8 +219,10 @@ public class ManageQuestions : MonoBehaviour
             answer = choice3;
         }
         else {
-            
+
         }
+        Debug.Log("Place: " + place);
+        Debug.Log("Answer: " + answer);
 
         int[] choices = new int[3];
         choices[0] = choice1;
