@@ -203,11 +203,12 @@ public class ManageQuestions : MonoBehaviour
         place = places[index];   
         
         if (choice1 == 0){
-            Question1.text = "In the number " + choice2 + choice3 + ". What value is in the " + place + " place?";
+            Question1.text = "In the number " + choice2 + choice3 + ".\n What value is in the " + place + " place?";
         }
         else { 
-            Question1.text = "In the number " + choice1 + choice2 + choice3 + ". What value is in the " + place + " place?";
+            Question1.text = "In the number " + choice1 + choice2 + choice3 + ".\n What value is in the " + place + " place?";
         }
+        
         if (place.Equals(ones)) {
             answer = choice3;
         }
@@ -219,7 +220,7 @@ public class ManageQuestions : MonoBehaviour
         }
         else {
         }
-        
+
         Debug.Log("Place: " + place);
         Debug.Log("Answer: " + answer);
 
