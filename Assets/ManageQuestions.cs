@@ -59,25 +59,16 @@ public class ManageQuestions : MonoBehaviour
     int lives = 5 - wrongAnswers;
     Counter.text = "You have " + counter + " correct answers!";
     WrongAnswer.text = "You have " + lives + " lives left";
-
-        //Question();
+    
+    float operatorRand = UnityEngine.Random.Range(0f, 1f);
+    if (operatorRand < 0.7f) {
+        Question();
+    } 
+    else {
         QuestionPlaceValue();
-       
+    }
         
     }
- /* private bool isCorrect(String guess1)
-    {
-        correct = false;
-        int guessValue;
-        if (int.TryParse(guess1, out guessValue))
-        {
-            if (guessValue == answer)
-            correct = true;
-            Debug.Log("isCorrect returns: " + correct);
-            return correct;
-        }
-        return false;
-    }*/
 
 
 
@@ -165,6 +156,7 @@ public class ManageQuestions : MonoBehaviour
 
         
      Question1.textStyle = TMP_Style.NormalStyle;
+     Question1.fontSize = 50;
      Answer2.textStyle = TMP_Style.NormalStyle;
       
 
