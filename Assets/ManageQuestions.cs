@@ -208,19 +208,18 @@ public class ManageQuestions : MonoBehaviour
         else { 
             Question1.text = "In the number " + choice1 + choice2 + choice3 + ". What value is in the " + place + " place?";
         }
-        
         if (place.Equals(ones)) {
-            answer = choice1;
+            answer = choice3;
         }
         else if(place.Equals(tens)) {
             answer = choice2;
         }
         else if (place.Equals(hundreds)) {
-            answer = choice3;
+            answer = choice1;
         }
         else {
-
         }
+        
         Debug.Log("Place: " + place);
         Debug.Log("Answer: " + answer);
 
