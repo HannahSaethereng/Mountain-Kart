@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CarMoves : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
-    public float speed = 100.0f;
+    //public float speed = 100.0f;
+    public static int speed = 60;
     private ManageQuestions manageQuestions;
 
     void Start()

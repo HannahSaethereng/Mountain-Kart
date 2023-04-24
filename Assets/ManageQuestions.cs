@@ -11,27 +11,27 @@ using System;
 public class ManageQuestions : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI Question1;
-    [SerializeField] private TextMeshProUGUI Answer2;
-    [SerializeField] private TextMeshProUGUI Choice1;
-    [SerializeField] private TextMeshProUGUI Choice2;
-    [SerializeField] private TextMeshProUGUI Counter;
-    [SerializeField] private TextMeshProUGUI WrongAnswer;
-    [SerializeField] private TextMeshProUGUI feedbackText;
+    [SerializeField] private TextMeshProUGUI Question1;         // text that shows question
+    [SerializeField] private TextMeshProUGUI Answer2;           // the number showing on the middle button
+    [SerializeField] private TextMeshProUGUI Choice1;           // the number showing on the lef/right button
+    [SerializeField] private TextMeshProUGUI Choice2;           // the number showing on the left/right button
+    [SerializeField] private TextMeshProUGUI Counter;           // the text that shows how many correct answers
+    [SerializeField] private TextMeshProUGUI WrongAnswer;       // the text that shows how many lives you have left
+    [SerializeField] private TextMeshProUGUI feedbackText;      // the text that shows: Correct! Try again!
     public AudioSource audioSource;
     public AudioClip correctSound;
     public AudioClip wrongSound;
-    private int ranNum1;
-    private int ranNum2;
-    private char addSub;
-    private int answer;
-    private static int counter = 0;
-    private static int wrongAnswers = -1;
-    public static bool correct = false;
-    private static int guess;
+    private int ranNum1;                                        // randomly generated number used for math question 1 +
+    private int ranNum2;                                        // randomly generated number used for math question 1
+    private char addSub;                                        // plus and minus sign
+    private int answer;                                         // correct answer, randomly put into one of the buttons
+    private static int counter = 0;                             // counts correct answers
+    private static int wrongAnswers = -1;                       // count the wrong answer, starts with -1 because the first answers will always be wrong by starting the game
+    public static bool correct = false;                         // did player click the right answer
+    private static int guess;                                   // the button the player guessed
 
-    private static int indexCorrect = -1;
-    private static System.Random rand;
+    private static int indexCorrect = -1;                       // which button the correct answer is in
+    private static System.Random rand;                          // random generator
 
 
 
@@ -41,20 +41,18 @@ public class ManageQuestions : MonoBehaviour
     if(guess == indexCorrect) {
         counter++;
         correct = true;
-        if(guess==0){
         feedbackText.text = "Correct!";
-        audioSource.PlayOneShot(correctSound);
-       }
-        
+        audioSource.PlayOneShot(correctSound);  
     }
-    else{
+    else{ 
         wrongAnswers++; 
         correct = false;
-        if (guess==0) {
+        if (wrongAnswers>0) {
         feedbackText.text = "Sorry, wrong answer. Try again!";
         audioSource.PlayOneShot(wrongSound);
         }
     }
+
     //Debug.Log("correct counter = " + counter + ", " + "wrong answers = " + wrongAnswers);
     if ((counter == 10) && (wrongAnswers < 2)) {
             SceneManager.LoadScene("Winning Scene");
