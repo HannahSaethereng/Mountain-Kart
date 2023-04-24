@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 592746451}
   - component: {fileID: 592746453}
   - component: {fileID: 592746452}
+  - component: {fileID: 592746454}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -259,6 +260,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592746450}
   m_CullTransparentMesh: 1
+--- !u!114 &592746454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592746450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8f6ddb3d9c74ca7b01e352413eed27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &772128855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,9 +1168,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1820174427}
-  - component: {fileID: 1820174431}
   - component: {fileID: 1820174430}
   - component: {fileID: 1820174429}
+  - component: {fileID: 1820174431}
   - component: {fileID: 1820174428}
   m_Layer: 5
   m_Name: QuitButton
@@ -1232,8 +1245,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1820174431}
-        m_TargetAssemblyTypeName: QuitButton, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_TargetAssemblyTypeName: quit, Assembly-CSharp
+        m_MethodName: Quitgame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1290,7 +1303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1820174426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e582eb2e29d46079b16063a7241d4f, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf27bd3a34d74ff29f883a57758073e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2091416688
