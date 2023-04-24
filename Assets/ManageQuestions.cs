@@ -17,6 +17,10 @@ public class ManageQuestions : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Choice2;
     [SerializeField] private TextMeshProUGUI Counter;
     [SerializeField] private TextMeshProUGUI WrongAnswer;
+    [SerializeField] private TextMeshProUGUI feedbackText;
+    public AudioSource audioSource;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
     private int ranNum1;
     private int ranNum2;
     private char addSub;
@@ -25,29 +29,38 @@ public class ManageQuestions : MonoBehaviour
     private static int wrongAnswers = -1;
     public static bool correct = false;
     private static int guess;
-    private static int indexCorrect = -1;
+    private static int indexCorrect = -1; // which button has the correct answer
 
 
    public void ButtonPress() { 
     correct = false;
+
     if(guess == indexCorrect) {
         counter++;
         correct = true;
+        if(guess==0){
+        feedbackText.text = "Correct!";
+        audioSource.PlayOneShot(correctSound);
+       }
         
     }
-    else {
-        wrongAnswers++;
-
+    else{
+        wrongAnswers++; 
+        correct = false;
+        if (guess==0) {
+        feedbackText.text = "Sorry, wrong answer. Try again!";
+        audioSource.PlayOneShot(wrongSound);
+        }
     }
     //Debug.Log("correct counter = " + counter + ", " + "wrong answers = " + wrongAnswers);
     if ((counter == 10) && (wrongAnswers < 2)) {
-            //SceneManager.LoadScene("Winning Scene");
+            SceneManager.LoadScene("Winning Scene");
         }
     else if ((counter == 10) && (wrongAnswers < 5)) {
-            //SceneManager.LoadScene("Almost Won");
+            SceneManager.LoadScene("Almost Won");
         }
     else if (wrongAnswers == 5) {
-            //SceneManager.LoadScene("Losing Scene");
+            SceneManager.LoadScene("Losing Scene");
         }
     else {
 
