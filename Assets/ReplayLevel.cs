@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ReplayLevel : MonoBehaviour
 {
- public void ButtonPress() { 
+ public void ButtonPress2() { 
     replayLevel();
  }
 

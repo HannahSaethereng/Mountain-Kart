@@ -605,7 +605,7 @@ MonoBehaviour:
   Counter: {fileID: 108219545}
   WrongAnswer: {fileID: 695915228}
   feedbackText: {fileID: 555465105}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1548657990}
   correctSound: {fileID: 8300000, guid: 91a37bccab3374e968af87088dd288b6, type: 3}
   wrongSound: {fileID: 8300000, guid: 07708160ba2ac4c1887705c99a4c8ca5, type: 3}
 --- !u!114 &540085144
@@ -750,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: 207}
+  m_AnchoredPosition: {x: -4.8, y: 181.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555465104
@@ -822,15 +822,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -992,7 +992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 668412145}
-  speed: 10
 --- !u!1 &684994445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2161,7 @@ MonoBehaviour:
   Counter: {fileID: 108219545}
   WrongAnswer: {fileID: 695915228}
   feedbackText: {fileID: 555465105}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1548657990}
   correctSound: {fileID: 8300000, guid: 91a37bccab3374e968af87088dd288b6, type: 3}
   wrongSound: {fileID: 8300000, guid: 07708160ba2ac4c1887705c99a4c8ca5, type: 3}
 --- !u!114 &1646580575
